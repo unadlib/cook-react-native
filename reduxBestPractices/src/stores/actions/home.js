@@ -9,13 +9,21 @@ import {createActions} from "redux-actions";
 import actionTypes from "../actionTypes";
 import {API} from "../../configs/settings/profile";
 import convertParams from "../../utils/convertParams";
+import {GoodsList} from '../schema';
 
-const {HOME_GOODS_LIST} = actionTypes;
+const {HOME} = actionTypes;
+
 export const {
     homeGoodsListFetch,
 } = createActions({
-    [HOME_GOODS_LIST[0]]: (params = {}) => ({
-        ...convertParams(API.goods, params),
-        status: [...HOME_GOODS_LIST],
-    })
+    [HOME.GOODS_LIST[0]]: [
+        (params = {}) => ({
+            ...convertParams(API.goods, params),
+            status: [...HOME.GOODS_LIST],
+        }),
+        () => ({
+            schema: GoodsList,
+            selector: 'result'
+        })
+    ]
 });

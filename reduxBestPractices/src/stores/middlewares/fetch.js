@@ -41,7 +41,7 @@ export default ({dispatch, getState}) => next => action => {
 }
 
 function getUrl(url, params, isEnableCache) {
-    let cacheParam = isEnableCache ? {_: (+new Date())} : {};
+    let cacheParam = !isEnableCache ? {_: (+new Date())} : {};
     let getItem = (allParams, i) => [encodeURIComponent(i), "=", encodeURIComponent(allParams[i])].join("");
     let allParams = {
         ...params,

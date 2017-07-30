@@ -7,15 +7,12 @@
 
 import React, {Component} from "react";
 import {View, Text} from "react-native";
+import Home from "../containers/main/Home";
 
 class Router extends Component {
     render() {
         return (
-            <View style={style.container}>
-                <Text>
-                    Router
-                </Text>
-            </View>
+            <Home/>
         );
     }
 

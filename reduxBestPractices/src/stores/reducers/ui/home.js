@@ -8,16 +8,17 @@
 import {handleActions} from "redux-actions";
 import actionTypes from "../../actionTypes";
 
-const {HOME_GOODS_LIST} = actionTypes;
+const {HOME: {GOODS_LIST}} = actionTypes;
 const initialState = {};
 export default handleActions({
-    [HOME_GOODS_LIST[0]]: (state, action) => ({
+    [GOODS_LIST[0]]: (state, action) => ({
         ...state,
     }),
-    [HOME_GOODS_LIST[1]]: (state, action) => ({
+    [GOODS_LIST[1]]: (state, {payload: {data}}) => ({
         ...state,
+        list: [...data.result],
     }),
-    [HOME_GOODS_LIST[2]]: (state, action) => ({
+    [GOODS_LIST[2]]: (state, action) => ({
         ...state,
     })
 }, initialState);

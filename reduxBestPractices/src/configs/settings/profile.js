@@ -10,7 +10,7 @@ import {INTERFACE} from "./network";
 
 export const profile = {
     API: {
-        home: {
+        goods: {
             url: INTERFACE.goods,
             params: {},
         }

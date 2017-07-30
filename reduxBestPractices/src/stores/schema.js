@@ -7,9 +7,9 @@
 
 import {schema} from "normalizr";
 
-const User = new schema.Entity("User");
+const Users = new schema.Entity("Users");
 const Goods = new schema.Entity("Goods", {
-    user: User,
+    user: Users,
 });
 export const GoodsList = [Goods];
 

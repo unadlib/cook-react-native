@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"server": "http-server -a 0.0.0.0 -p 9527 mock",
 		"test": "jest"
 	},
 	"dependencies": {
@@ -24,6 +25,7 @@
 	"devDependencies": {
 		"babel-jest": "20.0.3",
 		"babel-preset-react-native": "2.1.0",
+		"http-server": "^0.10.0",
 		"jest": "20.0.4",
 		"react-test-renderer": "16.0.0-alpha.12"
 	},

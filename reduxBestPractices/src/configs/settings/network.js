@@ -10,7 +10,7 @@ export const NETWORK = {
     path: "/v1/",
     suffix: ".json",
     hosts: {
-        dev: "0.0.0.0:3000",
+        dev: "192.168.56.1:9527",
         pro: "0.0.0.0:1000",
     },
     interface:{

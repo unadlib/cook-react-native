@@ -1,25 +1,25 @@
 /**
  * Author   : unadlib
  * Date     : 2017/7/30
- * Time     : 下午6:12
+ * Time     : 下午11:41
  * Project [ cook-react-native ] Coded on WebStorm.
  */
-
 
 import {handleActions, createActions, combineActions} from 'redux-actions';
 import actionTypes from '../../actionTypes';
 
-const {GOODS: {MODEL_UPDATE}} = actionTypes;
+const {USERS:{MODEL_UPDATE}} = actionTypes;
 export const {
-    goodsModelUpdate,
+    usersModelUpdate
 } = createActions({
     [MODEL_UPDATE]: (data) => ({
         model: data
     }),
 });
 export default handleActions({
-    [goodsModelUpdate]: (state, action) => ({
+    [usersModelUpdate]: (state, action) => ({
         ...state,
         ...action.payload.model
     })
 }, {});
+ 

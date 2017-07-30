@@ -20,6 +20,16 @@ export const CONSTANT = {
             "CHANGE_TAG"
         ],
     },
+    GOODS: {
+        COMMON: [
+            "MODEL_UPDATE"
+        ],
+    },
+    USERS: {
+        COMMON: [
+            "MODEL_UPDATE"
+        ],
+    }
 };
 
 const getActionTypes = (CONSTANT = {}, FETCH_STATUS = []) => {
@@ -27,13 +37,12 @@ const getActionTypes = (CONSTANT = {}, FETCH_STATUS = []) => {
     Object.keys(CONSTANT).map(i => {
         let FETCH = CONSTANT[i].FETCH || [],
             COMMON = CONSTANT[i].COMMON || [];
+        ACTION_TYPE[i] = {};
         FETCH.map(f => {
-            let key = `${i}_${f}`;
-            ACTION_TYPE[key] = FETCH_STATUS.map(s => `${key}_${s}`);
+            ACTION_TYPE[i][f] = FETCH_STATUS.map(s => `${i}_${f}_${s}`);
         });
         COMMON.map(c => {
-            let key = `${i}_${c}`;
-            ACTION_TYPE[key] = key;
+            ACTION_TYPE[i][c] = `${i}_${c}`;
         });
     });
     return ACTION_TYPE;

@@ -7,10 +7,12 @@
 
 import {combineReducers} from "redux";
 import Goods from "./model/Goods";
+import Users from "./model/Users";
 import home from "./ui/home";
 
 const rootReducer = combineReducers({
     home,
     Goods,
+    Users,
 });
 export default rootReducer;

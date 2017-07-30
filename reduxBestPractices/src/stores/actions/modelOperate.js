@@ -6,3 +6,4 @@
  */
 
 export * from "../reducers/model/Goods";
+export * from "../reducers/model/Users";
