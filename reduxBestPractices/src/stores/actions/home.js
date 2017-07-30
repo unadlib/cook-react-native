@@ -11,15 +11,15 @@ import {API} from "../../configs/settings/profile";
 import convertParams from "../../utils/convertParams";
 import {GoodsList} from '../schema';
 
-const {HOME} = actionTypes;
+const {HOME: {GOODS_LIST}} = actionTypes;
 
 export const {
     homeGoodsListFetch,
 } = createActions({
-    [HOME.GOODS_LIST[0]]: [
+    [GOODS_LIST[0]]: [
         (params = {}) => ({
             ...convertParams(API.goods, params),
-            status: [...HOME.GOODS_LIST],
+            status: [...GOODS_LIST],
         }),
         () => ({
             schema: GoodsList,
