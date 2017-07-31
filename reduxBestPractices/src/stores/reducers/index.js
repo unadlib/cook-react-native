@@ -6,13 +6,14 @@
  */
 
 import {combineReducers} from "redux";
+import {createReducer} from "redux-orm";
 import Goods from "./model/Goods";
 import Users from "./model/Users";
 import home from "./ui/home";
 import model from "./models";
 
 const rootReducer = combineReducers({
-    model: model.reducer(),
+    model: createReducer(model),
     home,
     Goods,
     Users,

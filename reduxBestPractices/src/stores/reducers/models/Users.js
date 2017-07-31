@@ -19,6 +19,6 @@ export default class Users extends Model {
 }
 
 Users.modelName = 'Users';
-Users.backend = {
+Users.options = {
     idAttribute: "id",
 };

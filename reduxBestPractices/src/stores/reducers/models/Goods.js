@@ -19,7 +19,7 @@ export default class Goods extends Model {
 }
 
 Goods.modelName = 'Goods';
-Goods.backend = {
+Goods.options = {
     idAttribute: "id",
 };
 Goods.fields = {

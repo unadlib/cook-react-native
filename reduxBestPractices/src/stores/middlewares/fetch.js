@@ -9,7 +9,6 @@
 import {API, NETWORK} from "../../configs/settings/network";
 
 export default ({dispatch, getState}) => next => action => {
-    console.log(action);
     next(action);
     const {payload, ...rest} = action;
     if (!payload || payload && !payload.url) return;

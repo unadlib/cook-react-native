@@ -12,6 +12,3 @@ const Goods = new schema.Entity("Goods", {
     user: Users,
 });
 export const GoodsList = [Goods];
-
-
- 
