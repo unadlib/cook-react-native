@@ -16,7 +16,8 @@ import {homeGoodsListFetch} from '../../stores/actions/home';
 class Home extends Component {
 
     componentDidMount() {
-        this.props.$fetch();
+        // this.props.$fetch();
+        setTimeout(this.props.$add.bind(this),1000);
     }
 
     render() {
@@ -46,6 +47,7 @@ export const makeSelector = () => createSelector(
     [
         (state, props) => {
             let {home, Goods, Users} = state;
+            console.log(state.model.Goods);
             return denormalize(home.list, GoodsList, {Goods, Users})
         }
     ],
@@ -53,5 +55,6 @@ export const makeSelector = () => createSelector(
 );
 export const mapDispatchToProps = (dispatch, props) => ({
     $fetch: (...arg) => dispatch(homeGoodsListFetch(...arg)),
+    $add: (...arg) => dispatch({type: 'CREATE_GOODS'}),
 });
 export default connectComponent({LayoutComponent, makeSelector, mapDispatchToProps});

@@ -1,35 +1,39 @@
 {
-	"name": "reduxBestPractices",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"server": "http-server -a 0.0.0.0 -p 9527 mock",
-		"test": "jest"
-	},
-	"dependencies": {
-		"lodash": "^4.17.4",
-		"normalizr": "^3.2.3",
-		"prop-types": "^15.5.10",
-		"react": "16.0.0-alpha.12",
-		"react-native": "0.46.3",
-		"react-navigation": "^1.0.0-beta.11",
-		"react-redux": "^5.0.5",
-		"redux": "^3.7.2",
-		"redux-actions": "^2.2.1",
-		"redux-orm": "^0.9.4",
-		"redux-persist": "^4.8.2",
-		"redux-thunk": "^2.2.0",
-		"reselect": "^3.0.1"
-	},
-	"devDependencies": {
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "2.1.0",
-		"http-server": "^0.10.0",
-		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.12"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "reduxBestPractices",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "server": "http-server -a 0.0.0.0 -p 9527 mock",
+    "test": "jest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "normalizr": "^3.2.3",
+    "prop-types": "^15.5.10",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.46.3",
+    "react-navigation": "^1.0.0-beta.11",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-orm": "^0.9.4",
+    "redux-orm-proptypes": "^0.1.0",
+    "redux-persist": "^4.8.2",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-native": "2.1.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "http-server": "^0.10.0",
+    "jest": "20.0.4",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
