@@ -27,12 +27,12 @@ export default ({dispatch, getState}) => next => action => {
         payload,
         error,
     });
-    if (toString.call(url) === "[object String]") {
+    if (_.isString(url)) {
         return fetch(getUrl(url, params), options)
             .then(response => response.json())
             .then(success)
             .catch(error);
-    } else if (toString.call(url) === "[object Array]" && url.length > 0) {
+    } else if (_.isArray(url) && url.length > 0) {
         return Promise.all(url.map((i, k) => fetch(getUrl(i, params[k]), options[k])))
             .then(values => Promise.all(values.map(val => val.json())))
             .then(success)

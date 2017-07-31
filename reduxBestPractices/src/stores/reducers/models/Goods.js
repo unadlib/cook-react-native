@@ -12,7 +12,8 @@ export default class Goods extends Model {
         const {payload, type} = action;
         switch (type) {
             case "CREATE_GOODS":
-                Goods.create({id: 1, name: "xxx"});
+                Session.Goods.create({id: 1, name: "xxx"});
+                Session.Goods.create({id: 2, name: "xxx"});
                 break;
         }
     }
@@ -24,5 +25,5 @@ Goods.options = {
 };
 Goods.fields = {
     id: attr(),
-    // user: fk('Users'),
+    user: fk('Users'),
 };

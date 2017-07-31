@@ -8,28 +8,31 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import {createSelector} from 'reselect';
+import {createSelector as ormSelector} from 'redux-orm';
 import connectComponent from '../../stores/connectComponent';
 import {denormalize} from 'normalizr';
 import {GoodsList} from '../../stores/schema';
+import models from '../../stores/reducers/models';
 import {homeGoodsListFetch} from '../../stores/actions/home';
 
 class Home extends Component {
 
     componentDidMount() {
         // this.props.$fetch();
-        setTimeout(this.props.$add.bind(this),1000);
+        setTimeout(this.props.$add.bind(this), 1000);
     }
 
     render() {
         let {data = []} = this.props;
+        console.log(this.props);
         return (
             <View style={style.container}>
-                {
-                    data.map((i = {}, key) => {
-                        let {text = ""} = i;
-                        return <Text key={key}>{text}</Text>
-                    })
-                }
+                {/*{*/}
+                    {/*datas.map((i = {}, key) => {*/}
+                        {/*let {text = ""} = i;*/}
+                        {/*return <Text key={key}>{text}</Text>*/}
+                    {/*})*/}
+                {/*}*/}
             </View>
         );
     }
@@ -44,14 +47,22 @@ const style = {
 
 export const LayoutComponent = Home;
 export const makeSelector = () => createSelector(
-    [
-        (state, props) => {
-            let {home, Goods, Users} = state;
-            console.log(state.model.Goods);
-            return denormalize(home.list, GoodsList, {Goods, Users})
+    state => state.model,
+    state => state,
+    ormSelector(models, (orm, state) => {
+        let {model: {Goods: {itemsById: Goods}, Users: {itemsById: Users}}, home: {list}} = state;
+        return {
+            // home: denormalize(list, GoodsList, {Goods, Users}),
+            goods: orm.Goods.all().toRefArray()
         }
-    ],
-    (data) => data
+    })
+    // [
+    //     (state, props) => {
+    //         let {home, Goods, Users} = state;
+    //         return denormalize(home.list, GoodsList, {Goods, Users})
+    //     }
+    // ],
+    // (data) => data
 );
 export const mapDispatchToProps = (dispatch, props) => ({
     $fetch: (...arg) => dispatch(homeGoodsListFetch(...arg)),

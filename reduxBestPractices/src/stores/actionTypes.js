@@ -10,7 +10,11 @@ export const FETCH_STATUS = [
     "FETCH_SUCCESS",
     "FETCH_FAILURE"
 ];
-
+export const MODEL_FULL_ACTIONS = [
+    "MODEL_UPDATE",
+    "MODEL_CREATE",
+    "MODEL_DELETE",
+];
 export const CONSTANT = {
     HOME: {
         FETCH: [
@@ -21,14 +25,10 @@ export const CONSTANT = {
         ],
     },
     GOODS: {
-        COMMON: [
-            "MODEL_UPDATE"
-        ],
+        COMMON: MODEL_FULL_ACTIONS,
     },
     USERS: {
-        COMMON: [
-            "MODEL_UPDATE"
-        ],
+        COMMON: MODEL_FULL_ACTIONS,
     }
 };
 
