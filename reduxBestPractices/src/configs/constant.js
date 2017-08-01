@@ -5,5 +5,3 @@
  * Project [ cook-react-native ] Coded on WebStorm.
  */
  
- 
- 

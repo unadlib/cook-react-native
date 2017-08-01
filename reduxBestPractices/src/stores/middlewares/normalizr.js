@@ -13,6 +13,7 @@ export default ({dispatch, getState}) => next => action => {
     let isLoadedDataWithSchema = payload && payload.data && meta && meta.schema && meta.selector;
     if (!!isLoadedDataWithSchema) {
         let normalizeData = parseSelectorLoadData(action.payload.data, meta.selector, meta.schema);
+        // TODO: Change to single-order centralized dispatch to Reducer.
         Object.keys(normalizeData.entities).map(i => {
             let actionConfig = {
                 type: actionTypes[i.toUpperCase()].MODEL_UPDATE,

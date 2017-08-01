@@ -22,6 +22,7 @@ class Home extends Component {
     }
 
     render() {
+        // TODO: Reduce render times by using immutable state.
         let {data: {home = []}} = this.props;
         console.log(this.props);
         return (
@@ -49,6 +50,7 @@ export const makeSelector = () => createSelector(
     state => state.model,
     state => state,
     ormSelector(models, (orm, state) => {
+        // TODO: Change to ORM query or data combination function.
         let {model: {Goods: {itemsById: Goods}, Users: {itemsById: Users}}, home: {list}} = state;
         return {
             home: denormalize(list, GoodsList, {Goods, Users}),

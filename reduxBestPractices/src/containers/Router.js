@@ -11,6 +11,7 @@ import Home from "../containers/main/Home";
 
 class Router extends Component {
     render() {
+        // TODO: Add React-Navigation config.
         return (
             <Home/>
         );

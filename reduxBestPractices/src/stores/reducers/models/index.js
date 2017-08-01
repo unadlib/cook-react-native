@@ -14,6 +14,7 @@ const orm = new ORM();
 orm.register(Goods, Users);
 export default orm;
 
+// TODO: Setting model initialize state and use redux-orm-proptypes for checking remote Data type.
 export const model = handleActions({
     ...goods,
     ...users,
