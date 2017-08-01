@@ -42,5 +42,4 @@ React Native best practices.
 * Custom subcontracting
 * Incrementally update all type files
 * CRUD Restful/GraphQL redux parser middleware
-
-    
+* Use prepack and react-sketchapp

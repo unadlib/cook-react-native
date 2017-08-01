@@ -23,8 +23,7 @@ class Home extends Component {
 
     render() {
         // TODO: Reduce render times by using immutable state.
-        let {data: {home = []}} = this.props;
-        console.log(this.props);
+        let {data: {home = [], goods = []}} = this.props;
         return (
             <View style={style.container}>
                 {
@@ -33,6 +32,7 @@ class Home extends Component {
                         return <Text key={key}>{text}</Text>
                     })
                 }
+                <Text>{goods.length}</Text>
             </View>
         );
     }
