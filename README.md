@@ -33,4 +33,14 @@ React Native best practices.
     typical action
     ui action
     
+#### TODO
+
+* Configure Storybooks
+* Type check
+* Remote data structure conversion
+* Performance monitoring
+* Custom subcontracting
+* Incrementally update all type files
+* CRUD Restful/GraphQL redux parser middleware
+
     
