@@ -18,21 +18,20 @@ import {homeGoodsListFetch} from '../../stores/actions/home';
 class Home extends Component {
 
     componentDidMount() {
-        // this.props.$fetch();
-        setTimeout(this.props.$add.bind(this), 1000);
+        this.props.$fetch();
     }
 
     render() {
-        let {data = []} = this.props;
+        let {data: {home = []}} = this.props;
         console.log(this.props);
         return (
             <View style={style.container}>
-                {/*{*/}
-                    {/*datas.map((i = {}, key) => {*/}
-                        {/*let {text = ""} = i;*/}
-                        {/*return <Text key={key}>{text}</Text>*/}
-                    {/*})*/}
-                {/*}*/}
+                {
+                    home.map((i = {}, key) => {
+                        let {text = ""} = i;
+                        return <Text key={key}>{text}</Text>
+                    })
+                }
             </View>
         );
     }
@@ -52,20 +51,12 @@ export const makeSelector = () => createSelector(
     ormSelector(models, (orm, state) => {
         let {model: {Goods: {itemsById: Goods}, Users: {itemsById: Users}}, home: {list}} = state;
         return {
-            // home: denormalize(list, GoodsList, {Goods, Users}),
+            home: denormalize(list, GoodsList, {Goods, Users}),
             goods: orm.Goods.all().toRefArray()
         }
     })
-    // [
-    //     (state, props) => {
-    //         let {home, Goods, Users} = state;
-    //         return denormalize(home.list, GoodsList, {Goods, Users})
-    //     }
-    // ],
-    // (data) => data
 );
 export const mapDispatchToProps = (dispatch, props) => ({
     $fetch: (...arg) => dispatch(homeGoodsListFetch(...arg)),
-    $add: (...arg) => dispatch({type: 'CREATE_GOODS'}),
 });
 export default connectComponent({LayoutComponent, makeSelector, mapDispatchToProps});

@@ -6,24 +6,23 @@
  */
 
 import {Model, fk, attr} from 'redux-orm';
+import {ormReducer} from "./index";
+import actionTypes from "../../actionTypes";
+const {GOODS: {MODEL_UPDATE}} = actionTypes;
 
 export default class Goods extends Model {
-    static reducer(action, Goods, Session) {
-        const {payload, type} = action;
-        switch (type) {
-            case "CREATE_GOODS":
-                Session.Goods.create({id: 1, name: "xxx"});
-                Session.Goods.create({id: 2, name: "xxx"});
-                break;
-        }
-    }
+    static modelName = 'Goods';
+    static options = {
+        idAttribute: "id",
+    };
+    static fields = {
+        id: attr(),
+        user: fk('Users'),
+    };
 }
 
-Goods.modelName = 'Goods';
-Goods.options = {
-    idAttribute: "id",
-};
-Goods.fields = {
-    id: attr(),
-    user: fk('Users'),
+export const goods = {
+    [MODEL_UPDATE]: ormReducer(({Goods}, state, {model}) => {
+        Object.keys(model).map(i => Goods.create(model[i]))
+    }),
 };

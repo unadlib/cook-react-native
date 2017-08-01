@@ -6,9 +6,23 @@
  */
 
 import {ORM} from "redux-orm";
-import Goods from "./Goods";
-import Users from "./Users";
+import {handleActions} from "redux-actions";
+import Goods, {goods} from "./Goods";
+import Users, {users} from "./Users";
 
-const models = new ORM();
-models.register(Goods, Users);
-export default models;
+const orm = new ORM();
+orm.register(Goods, Users);
+export default orm;
+
+export const model = handleActions({
+    ...goods,
+    ...users,
+}, orm.getEmptyState());
+
+export function ormReducer(fn) {
+    return (state, action) => {
+        const session = orm.session(state);
+        fn(session, state, action);
+        return session.state;
+    }
+}

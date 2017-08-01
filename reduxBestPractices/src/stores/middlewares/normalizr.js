@@ -6,7 +6,7 @@
  */
 
 import {normalize} from "normalizr";
-import * as modelActions from "../actions/modelOperate";
+import actionTypes from "../actionTypes";
 
 export default ({dispatch, getState}) => next => action => {
     let {meta, payload} = action;
@@ -14,8 +14,11 @@ export default ({dispatch, getState}) => next => action => {
     if (!!isLoadedDataWithSchema) {
         let normalizeData = parseSelectorLoadData(action.payload.data, meta.selector, meta.schema);
         Object.keys(normalizeData.entities).map(i => {
-            let actionType = `${i.toLowerCase()}ModelUpdate`;
-            dispatch(modelActions[actionType](normalizeData.entities[i]));
+            let actionConfig = {
+                type: actionTypes[i.toUpperCase()].MODEL_UPDATE,
+                model: normalizeData.entities[i]
+            };
+            dispatch(actionConfig);
         });
     }
     return setTimeout(next.bind(this, action));

@@ -6,16 +6,11 @@
  */
 
 import {combineReducers} from "redux";
-import {createReducer} from "redux-orm";
-import Goods from "./model/Goods";
-import Users from "./model/Users";
 import home from "./ui/home";
-import model from "./models";
+import {model} from "./models";
 
 const rootReducer = combineReducers({
-    model: createReducer(model),
+    model,
     home,
-    Goods,
-    Users,
 });
 export default rootReducer;
