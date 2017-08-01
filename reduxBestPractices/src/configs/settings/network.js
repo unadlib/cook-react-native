@@ -14,7 +14,7 @@ export const NETWORK = {
         pro: "0.0.0.0:1000",
     },
     interface:{
-        goods:"goods",
+        goods:"goods/${id}",
     }
 };
 export const INTERFACE = NETWORK.interface;

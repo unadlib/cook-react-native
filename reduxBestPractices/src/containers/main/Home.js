@@ -18,7 +18,7 @@ import {homeGoodsListFetch} from '../../stores/actions/home';
 class Home extends Component {
 
     componentDidMount() {
-        this.props.$fetch();
+        this.props.$fetch({id: 1});
     }
 
     render() {

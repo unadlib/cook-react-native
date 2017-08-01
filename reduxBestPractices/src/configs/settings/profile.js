@@ -12,7 +12,10 @@ export const profile = {
     API: {
         goods: {
             url: INTERFACE.goods,
-            params: {},
+            params: {
+                "${id}":"${id}",
+                demo: "${id+id}_test"
+            },
         }
     }
 };
