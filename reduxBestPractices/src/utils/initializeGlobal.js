@@ -9,4 +9,5 @@ import _ from "lodash";
 
 export default function (global) {
     global._ = _;
+    if(!__DEV__) global.console = new Proxy({},{get(){return ()=>{}}});
 }
