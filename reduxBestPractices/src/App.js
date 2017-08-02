@@ -16,6 +16,7 @@ initializeGlobal(global);
 const store = configureStore(initialStore);
 
 class App extends Component {
+
     render() {
         return (
             <Provider store={store}>
@@ -23,6 +24,7 @@ class App extends Component {
             </Provider>
         );
     }
+
 }
 
 export default App;
